@@ -1,0 +1,37 @@
+from docx import Document
+doc = Document(docx = 'Документ Microsoft Word.docx')
+
+paras = doc.paragraphs
+
+for para in paras:
+    para.text = para.text.replace('Талабнома рақами	', "Номер заявки MGU ")
+    para.text = para.text.replace('Rasmiy ekspertizada,', "На экспертизе")
+    para.text = para.text.replace('Ro`yxatga olingan (amalda)', "Зарегистрирован")
+    para.text = para.text.replace('Amal qilish muddati tugagan', "Истекший")
+    para.text = para.text.replace('Амал қилиш муддатининг тугаш санаси', "Истекший")
+    para.text = para.text.replace('Талабномани топшириш санаси', "Дата подачи заявки:")
+    para.text = para.text.replace('Рўйхатдан ўтказиш муддатининг тугаш санаси', "Дата истечения срока регистрации:")
+    para.text = para.text.replace('Патент рақами:', "Номер свидетельства: MGU")
+    para.text = para.text.replace('Рўйхатдан ўтказиш санаси', "Дата регистрации:")
+    para.text = para.text.replace('Нашр қилинган сана:', "Дата публикации:")
+    para.text = para.text.replace('TXXK индекс рақами', "Классы МКТУ:")
+    para.text = para.text.replace('ТХХК таснифи', "Рубрики:")
+    para.text = para.text.replace('Товар белгисини тасвирлаш', "Описание товарного знака:")
+    para.text = para.text.replace('Вена таснифи:', "Венская классификация:")
+    para.text = para.text.replace('Жамоавий белги эканлигига кўрсатма', "Коллективный знак:")
+    para.text = para.text.replace('Уч ўлчовли (Ҳажимли) белги эканлигига кўрсатма', "Знак объемный:")
+    para.text = para.text.replace('Уч ўлчовли (қабариқ) белги эканлигига кўрсатма', "Знак объемный:")
+    para.text = para.text.replace('Голограмма белгиси', "Знак голографический:")
+    para.text = para.text.replace('Овоз белгиси, хусусиятлари билан бирга', "Знак звуковой:")
+    para.text = para.text.replace('Олфактор белгиси, хусусиятлари билан бирга', "Знак обонятельный:")
+    para.text = para.text.replace('Талабнома берувчининг номи ва манзили', "Имя и адрес заявителя:")
+    para.text = para.text.replace('Патент эгалари:', "Владелец:")
+    para.text = para.text.replace('Хат ёзишмалари учун манзил', "Адрес для корреспонденции:")
+    para.text = para.text.replace('false', "Нет")
+    para.text = para.text.replace('true', "Да")
+name = paras[0].text + " "
+paras[0].clear()
+for para in paras:
+    print(para.text)
+
+doc.save(f"MGU {name}.docx")
